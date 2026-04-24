@@ -1,0 +1,388 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* =====================================================================
+   Synapse · Premium SaaS theme
+   Reference: Linear.app meets Apple Health
+   ===================================================================== */
+
+:root {
+  /* Light fallback — the app runs .dark by default */
+  --background: hsl(0 0% 100%);
+  --foreground: hsl(240 10% 3.9%);
+  --card: hsl(0 0% 100%);
+  --card-foreground: hsl(240 10% 3.9%);
+  --popover: hsl(0 0% 100%);
+  --popover-foreground: hsl(240 10% 3.9%);
+  --primary: hsl(244 76% 59%);
+  --primary-foreground: hsl(0 0% 100%);
+  --secondary: hsl(240 4.8% 95.9%);
+  --secondary-foreground: hsl(240 5.9% 10%);
+  --muted: hsl(240 4.8% 95.9%);
+  --muted-foreground: hsl(240 3.8% 46.1%);
+  --accent: hsl(262 80% 60%);
+  --accent-foreground: hsl(0 0% 100%);
+  --destructive: hsl(0 72% 51%);
+  --destructive-foreground: hsl(0 0% 100%);
+  --success: hsl(142 70% 45%);
+  --success-foreground: hsl(0 0% 100%);
+  --warning: hsl(38 92% 50%);
+  --warning-foreground: hsl(0 0% 100%);
+  --border: hsl(240 5.9% 90%);
+  --input: hsl(240 5.9% 90%);
+  --ring: hsl(244 76% 59%);
+
+  --chart-1: hsl(244 76% 59%);
+  --chart-2: hsl(262 80% 60%);
+  --chart-3: hsl(217 91% 60%);
+  --chart-4: hsl(142 70% 45%);
+  --chart-5: hsl(38 92% 50%);
+
+  --sidebar: hsl(0 0% 100%);
+  --sidebar-foreground: hsl(240 10% 3.9%);
+  --sidebar-primary: hsl(244 76% 59%);
+  --sidebar-primary-foreground: hsl(0 0% 100%);
+  --sidebar-accent: hsl(240 4.8% 95.9%);
+  --sidebar-accent-foreground: hsl(240 5.9% 10%);
+  --sidebar-border: hsl(240 5.9% 90%);
+  --sidebar-ring: hsl(244 76% 59%);
+
+  --radius: 0.75rem;
+}
+
+.dark {
+  /* Deep Space Dark — V3 calibrated */
+  --background: hsl(240 8% 6%);             /* #0f0f12 */
+  --foreground: hsl(0 0% 96%);
+  --card: hsl(240 6% 11%);                  /* #1a1a1f — surface cards */
+  --card-foreground: hsl(0 0% 96%);
+  --popover: hsl(240 7% 8%);
+  --popover-foreground: hsl(0 0% 96%);
+
+  --primary: hsl(262 83% 58%);              /* #7c3aed — violet/indigo hybrid */
+  --primary-foreground: hsl(0 0% 100%);
+  --secondary: hsl(240 5% 13%);
+  --secondary-foreground: hsl(0 0% 96%);
+  --muted: hsl(240 5% 11%);
+  --muted-foreground: hsl(240 5% 64%);
+  --accent: hsl(258 90% 66%);               /* softer violet for hover/aura */
+  --accent-foreground: hsl(0 0% 100%);
+
+  --destructive: hsl(0 72% 55%);
+  --destructive-foreground: hsl(0 0% 100%);
+  --success: hsl(142 70% 50%);
+  --success-foreground: hsl(0 0% 100%);
+  --warning: hsl(38 92% 55%);
+  --warning-foreground: hsl(240 10% 3.9%);
+
+  --border: hsl(240 5% 15%);
+  --input: hsl(240 5% 17%);
+  --ring: hsl(262 83% 58%);
+
+  --chart-1: hsl(262 83% 58%);
+  --chart-2: hsl(258 90% 66%);
+  --chart-3: hsl(217 91% 60%);
+  --chart-4: hsl(142 70% 50%);
+  --chart-5: hsl(38 92% 55%);
+
+  --sidebar: hsla(240 8% 6% / 0.65);
+  --sidebar-foreground: hsl(0 0% 96%);
+  --sidebar-primary: hsl(262 83% 58%);
+  --sidebar-primary-foreground: hsl(0 0% 100%);
+  --sidebar-accent: hsla(0 0% 100% / 0.04);
+  --sidebar-accent-foreground: hsl(0 0% 96%);
+  --sidebar-border: hsla(0 0% 100% / 0.06);
+  --sidebar-ring: hsl(262 83% 58%);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  --font-sans: var(--font-inter), "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-display: var(--font-inter-tight), "Inter Tight", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --font-serif: var(--font-inter), "Inter", ui-serif, Georgia, serif;
+
+  --radius-sm: 0.5rem;    /* 8  */
+  --radius-md: 0.75rem;   /* 12 — buttons */
+  --radius-lg: 1rem;      /* 16 */
+  --radius-xl: 1.5rem;    /* 24 — main cards */
+  --radius-2xl: 2rem;     /* 32 — hero */
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html,
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "cv11", "ss01", "ss02", "cv02", "cv03";
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+}
+
+@layer utilities {
+  /* Hide scrollbar on horizontally-scrollable widgets like the compact heatmap */
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* =====================================================================
+   Aura — slow-moving radial gradient backdrop
+   Gives depth & calm (Anki/Quizlet differentiator)
+   ===================================================================== */
+
+@keyframes syn-aura-drift {
+  0% {
+    transform: translate3d(-4%, -2%, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(4%, 3%, 0) scale(1.08);
+  }
+  100% {
+    transform: translate3d(-4%, -2%, 0) scale(1);
+  }
+}
+
+.syn-aura {
+  position: fixed;
+  inset: -20%;
+  z-index: 0;
+  pointer-events: none;
+  filter: blur(80px) saturate(120%);
+  opacity: 0.55;
+  background:
+    radial-gradient(40% 35% at 18% 22%, hsl(262 83% 58% / 0.35), transparent 70%),
+    radial-gradient(45% 40% at 82% 78%, hsl(262 80% 60% / 0.30), transparent 72%),
+    radial-gradient(30% 30% at 50% 50%, hsl(217 91% 60% / 0.15), transparent 70%);
+  animation: syn-aura-drift 24s ease-in-out infinite;
+}
+
+.syn-aura-soft {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(50% 35% at 20% 0%, hsl(262 83% 58% / 0.12), transparent 70%),
+    radial-gradient(40% 30% at 90% 100%, hsl(262 80% 60% / 0.10), transparent 70%);
+}
+
+/* Fine noise to avoid banding on the big radial */
+.syn-noise::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.025;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}
+
+/* =====================================================================
+   Glass surfaces
+   ===================================================================== */
+
+.syn-glass {
+  background: hsla(0 0% 100% / 0.03);
+  backdrop-filter: blur(12px) saturate(140%);
+  -webkit-backdrop-filter: blur(12px) saturate(140%);
+  border: 1px solid hsla(0 0% 100% / 0.06);
+}
+
+.syn-glass-strong {
+  background: hsla(240 10% 5% / 0.65);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  border: 1px solid hsla(0 0% 100% / 0.08);
+}
+
+/* =====================================================================
+   Premium gradient button (Indigo-600 → Violet-700) with outer glow
+   ===================================================================== */
+
+.syn-btn-primary {
+  position: relative;
+  background: linear-gradient(135deg, hsl(244 80% 58%) 0%, hsl(262 75% 52%) 100%);
+  color: hsl(0 0% 100%);
+  border: 1px solid hsla(0 0% 100% / 0.12);
+  box-shadow:
+    0 8px 24px -8px hsl(244 80% 58% / 0.55),
+    0 1px 0 0 hsla(0 0% 100% / 0.12) inset,
+    0 -1px 0 0 hsla(0 0% 0% / 0.25) inset;
+  transition:
+    transform 180ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 220ms cubic-bezier(0.22, 1, 0.36, 1),
+    filter 220ms ease;
+}
+.syn-btn-primary:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.06);
+  box-shadow:
+    0 14px 34px -8px hsl(244 80% 58% / 0.65),
+    0 1px 0 0 hsla(0 0% 100% / 0.14) inset,
+    0 -1px 0 0 hsla(0 0% 0% / 0.25) inset;
+}
+.syn-btn-primary:active {
+  transform: translateY(0);
+}
+
+/* Soft card elevation (no heavy borders) */
+.syn-card {
+  background: hsla(0 0% 100% / 0.025);
+  border: 1px solid hsla(0 0% 100% / 0.06);
+  box-shadow:
+    0 1px 0 0 hsla(0 0% 100% / 0.04) inset,
+    0 10px 30px -12px hsla(0 0% 0% / 0.6);
+}
+.syn-card-hover {
+  transition:
+    transform 280ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 220ms ease,
+    box-shadow 280ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.syn-card-hover:hover {
+  border-color: hsla(262 83% 58% / 0.35);
+  box-shadow:
+    0 1px 0 0 hsla(0 0% 100% / 0.05) inset,
+    0 22px 48px -18px hsla(262 83% 58% / 0.35),
+    0 10px 30px -12px hsla(0 0% 0% / 0.6);
+}
+
+/* Gradient text */
+.syn-gradient-text {
+  background: linear-gradient(135deg, hsl(0 0% 98%) 0%, hsl(244 60% 80%) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Tabular numbers */
+.tabnum {
+  font-variant-numeric: tabular-nums;
+}
+
+/* 3D flip (Focus Mode card) */
+.syn-flip {
+  perspective: 1600px;
+}
+.syn-flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  transform-style: preserve-3d;
+}
+.syn-flipped .syn-flip-inner {
+  transform: rotateY(180deg);
+}
+.syn-flip-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.syn-flip-back {
+  transform: rotateY(180deg);
+}
+
+/* Scrollbar — subtle indigo, ultra thin */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: hsla(244 30% 50% / 0.25);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsla(262 83% 58% / 0.55);
+  background-clip: padding-box;
+  border: 2px solid transparent;
+}
+* {
+  scrollbar-width: thin;
+  scrollbar-color: hsla(244 30% 50% / 0.30) transparent;
+}
+
+/* Selection */
+::selection {
+  background: hsla(262 83% 58% / 0.35);
+  color: hsl(0 0% 100%);
+}
+
+/* Press feedback */
+.press-98:active {
+  transform: scale(0.98);
+  transition: transform 0.08s ease-out;
+}
+
+/* Focus ring — refined */
+:focus-visible {
+  outline: 2px solid hsla(262 83% 58% / 0.55);
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .syn-aura {
+    animation: none !important;
+  }
+}
